@@ -1,16 +1,27 @@
 package week2.day2;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 
-public class S654DeletetheLeadassociatedtoCampaignandcheck {
+public class S6_54_Delete_the_Lead_associated_to_Campaign_and_check {
 	@Test
-	public void deleteLead() throws InterruptedException {
+	public void deleteLead() throws InterruptedException, IOException {
+		
+		
 		EdgeDriver driver=new EdgeDriver();             
 		driver.get("https://login.salesforce.com/"); 
 		driver.manage().window().maximize();
@@ -32,6 +43,7 @@ public class S654DeletetheLeadassociatedtoCampaignandcheck {
 		driver.findElement(By.xpath("//input[@name='Lead-search-input']")).sendKeys("Manoj",Keys.ENTER);
 		Thread.sleep(2000);
 		//Confirm the Delete for Lead 
+		
 		driver.findElement(By.xpath("//tbody//tr[1]/td[10]//a")).click();
 		driver.findElement(By.xpath("//a[@title='Delete']")).click();
 		driver.findElement(By.xpath("//button[@title='Delete']")).click();
