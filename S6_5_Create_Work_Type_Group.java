@@ -15,12 +15,8 @@ public class S6_5_Create_Work_Type_Group {
 	@Test
 	public void createWorkTypeGroup() throws InterruptedException, MalformedURLException {
 		
-		DesiredCapabilities dc = new DesiredCapabilities();
-		dc.setBrowserName("chrome");
-		dc.setPlatform(Platform.LINUX);
-		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://20.40.48.160:4444/wd/hub"), dc);
 		
-		//EdgeDriver driver=new EdgeDriver();             
+		EdgeDriver driver=new EdgeDriver();             
 		driver.get("https://login.salesforce.com/"); 
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
