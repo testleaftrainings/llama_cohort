@@ -1,16 +1,24 @@
 package week2.day1;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 
-public class S617CreateOpportunitywithoutmandatoryfield {
+public class s6_17_Create_Opportunity_without_mandatory_field {
 	
 	@Test
-	public void createOpportunity() throws InterruptedException {
+	public void createOpportunity() throws InterruptedException, MalformedURLException {
+		
+		
 		EdgeDriver driver=new EdgeDriver();             
 		driver.get("https://login.salesforce.com/"); 
 		driver.manage().window().maximize();
@@ -29,9 +37,22 @@ public class S617CreateOpportunitywithoutmandatoryfield {
 		driver.executeScript("arguments[0].click()", element);
 		//Click on New button  
 		driver.findElement(By.xpath("//a//div[@title='New']")).click();
+		Thread.sleep(3000);
 		//Choose Close date as Tomorrow Date
 		driver.findElement(By.xpath("//input[@name='CloseDate']")).click();
-		driver.findElement(By.xpath("//table[@class='slds-datepicker__month']//td[@class='slds-is-today']/following::td[1]")).click();
+		//driver.findElement(By.xpath("//input[@name='CloseDate']")).click();
+		//Thread.sleep(2000);
+		try
+		{
+			driver.findElement(By.xpath("//table[@class='slds-datepicker__month']//td[@class='slds-is-today']/following::td[1]")).click();
+			
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+			driver.findElement(By.xpath("//table[@class='slds-datepicker__month']//td[@class='slds-is-today']/following::td[1]")).click();
+			
+		}
 		// Click on save 
 		driver.findElement(By.xpath("//button[@name='SaveEdit']")).click();
 		// Verify the Alert message (Complete this field) displayed for Name and Stage 
