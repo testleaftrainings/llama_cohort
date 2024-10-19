@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
 
-public class S6_11_Edit_Case {
+public class S611EditCase {
 
 	@Test
 	public void loginPage() throws InterruptedException {

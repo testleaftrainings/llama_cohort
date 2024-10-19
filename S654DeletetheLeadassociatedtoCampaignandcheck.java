@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
 
-public class S6_54_Delete_the_Lead_associated_to_Campaign_and_check {
+public class S654DeletetheLeadassociatedtoCampaignandcheck {
 	@Test
 	public void deleteLead() throws InterruptedException {
 		EdgeDriver driver=new EdgeDriver();             

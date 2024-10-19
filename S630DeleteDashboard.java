@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
 
-public class S6_30_Delete_Dashboard {
+public class S630DeleteDashboard {
 
 	@Test
 	public void deleteDashboard() throws InterruptedException

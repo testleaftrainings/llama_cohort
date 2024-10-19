@@ -7,7 +7,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-public class S6_24_Edit_Legal_Entity {
+public class S624EditLegalEntity {
 
 	@Test
 	public void editlegalEntity() throws InterruptedException {

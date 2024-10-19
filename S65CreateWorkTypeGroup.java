@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
 
-public class S6_5_Create_Work_Type_Group {
+public class S65CreateWorkTypeGroup {
 	@Test
 	public void createWorkTypeGroup() throws InterruptedException {
 		EdgeDriver driver=new EdgeDriver();             

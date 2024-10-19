@@ -8,7 +8,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-public class S6_44_Create_New_Chart {
+public class S644CreateNewChart {
 	@Test
 	public void createNewChart() throws InterruptedException {
 		EdgeDriver driver=new EdgeDriver();             

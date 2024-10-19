@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
 
-public class s6_17_Create_Opportunity_without_mandatory_field {
+public class S617CreateOpportunitywithoutmandatoryfield {
 	
 	@Test
 	public void createOpportunity() throws InterruptedException {

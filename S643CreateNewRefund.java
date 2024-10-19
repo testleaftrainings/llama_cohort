@@ -8,7 +8,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
-public class S6_43_Create_New_Refund {
+public class S643CreateNewRefund {
 
 	@Test
 	public void createNewRefund() throws InterruptedException {

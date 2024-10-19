@@ -13,7 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.Test;
 
-public class S6_42_Services_Sort_order {
+public class S642ServicesSortorder {
 	@Test
 	public void servicesSorting() throws InterruptedException {
 		EdgeDriver driver=new EdgeDriver();             
