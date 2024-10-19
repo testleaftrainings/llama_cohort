@@ -1,5 +1,7 @@
 package week2.day2;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,13 +11,18 @@ import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 
-public class S642ServicesSortorder {
+public class S6_42_Services_Sort_order {
 	@Test
-	public void servicesSorting() throws InterruptedException {
+	public void servicesSorting() throws InterruptedException, MalformedURLException {
+		
+		
 		EdgeDriver driver=new EdgeDriver();             
 		driver.get("https://login.salesforce.com/"); 
 		driver.manage().window().maximize();
