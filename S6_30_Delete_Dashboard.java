@@ -1,17 +1,23 @@
 package week2.day1;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 
-public class S630DeleteDashboard {
+public class S6_30_Delete_Dashboard {
 
 	@Test
-	public void deleteDashboard() throws InterruptedException
+	public void deleteDashboard() throws InterruptedException, MalformedURLException
 	{
+		
 		EdgeDriver driver = new EdgeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
@@ -48,10 +54,6 @@ public class S630DeleteDashboard {
 		//Verify Whether Dashboard is Deleted using Dashboard 
 		Thread.sleep(2000);
 		System.out.println(driver.findElement(By.xpath("//div[@data-aura-class='forceToastMessage']//span[@data-aura-class='forceActionsText']")).getText());
-//		driver.findElement(By.xpath("//input[@type='text']")).clear();
-//		Thread.sleep(2000);
-//		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("test");
-//		Thread.sleep(2000);
 		String url=driver.getCurrentUrl();
 		driver.get(url);
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("test");
