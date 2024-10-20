@@ -1,0 +1,59 @@
+package sprint1;
+
+import org.testng.annotations.Test;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.annotations.Test;
+
+public class S6_5_Create_Work_Type_Group {
+	@Test
+	public void createWorkTypeGroup() throws InterruptedException, MalformedURLException {
+		DesiredCapabilities dc = new DesiredCapabilities();
+		dc.setBrowserName("MicrosoftEdge");
+		dc.setPlatform(Platform.LINUX);
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://20.40.48.160:4444/wd/hub"), dc);
+		
+		
+		//EdgeDriver driver=new EdgeDriver();             
+		driver.get("https://login.salesforce.com/"); 
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		driver.findElement(By.id("username")).sendKeys("gokul.sekar@testleaf.com");
+		driver.findElement(By.id("password")).sendKeys("Leaf$321");
+		driver.findElement(By.id("Login")).click();
+		
+		//Click on toggle menu button from the left corner
+		driver.findElement(By.xpath("//button[@title='App Launcher']")).click();
+		//Click View All and click Work Type Groups from App Launcher 
+		driver.findElement(By.xpath("//button[text()='View All']")).click();
+		driver.findElement(By.xpath("//div[@type='search']/input")).sendKeys("Work Type Groups");
+		
+		driver.executeScript("arguments[0].click()",  driver.findElement(By.xpath("//a[@data-label='Work Type Groups']")));
+		//Click on the Dropdown icon in the Work Type Groups tab 
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("(//a[@title='Recently Viewed | Work Type Groups'])[2]/following::a[1]")).click();
+		//Click on New Work Type Group 
+		driver.executeScript("arguments[0].click()",driver.findElement(By.xpath("//span[text()='New Work Type Group']")));
+		//Enter Work Type Group Name as 'Salesforce Automation by *Your Name*' 
+		driver.findElement(By.xpath("//label[text()='Work Type Group Name']/following::input[@name='Name']")).sendKeys("Salesforce Automation by Manoj");
+		//Click save and verify Work Type Group Name 
+		driver.findElement(By.xpath("//button[@name='SaveEdit']")).click();
+		if(driver.findElement(By.xpath("//div[@data-aura-class='forceToastMessage']")).isDisplayed()) {
+			System.out.println(driver.findElement(By.xpath("(//a[@class='forceActionLink']/div)[2]")).getText());
+			System.out.println("Work Type Group created Successfully");
+		}
+			
+		else System.out.println("Work Type Group not created ");
+		//Thread.sleep(2000);
+		driver.close();
+	}
+	
+	
+}
