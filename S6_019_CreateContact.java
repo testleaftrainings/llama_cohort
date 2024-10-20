@@ -1,25 +1,32 @@
 package com.salesforce.testcases;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
 
 public class S6_019_CreateContact 
 {
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, MalformedURLException {
 		// TODO Auto-generated method stub
 		// 1. Login to https://login.salesforce.com
 		//WebDriverWait wait;
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("--disable-notifications");
-		ChromeDriver driver = new ChromeDriver(options);
+//		ChromeOptions options = new ChromeOptions();
+//		options.addArguments("--disable-notifications");
+//		ChromeDriver driver = new ChromeDriver(options);
+		DesiredCapabilities dc=new DesiredCapabilities();
+		dc.setPlatform(Platform.LINUX);
+		dc.setBrowserName("MicrosoftEdge");
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://20.40.48.160:4444/wd/hub"), dc);
+		
 		Actions actions = new Actions(driver);
 		driver.get("https://login.salesforce.com/");
 		driver.manage().window().maximize();
