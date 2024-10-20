@@ -12,10 +12,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 public class S6_019_CreateContact 
 {
-	public static void main(String[] args) throws InterruptedException, MalformedURLException {
+	@Test
+	public void runCreateContact() throws InterruptedException, MalformedURLException {
 		// TODO Auto-generated method stub
 		// 1. Login to https://login.salesforce.com
 		//WebDriverWait wait;
