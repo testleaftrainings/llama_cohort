@@ -45,6 +45,7 @@ public class S6_5_Create_Work_Type_Group {
 		driver.findElement(By.xpath("//label[text()='Work Type Group Name']/following::input[@name='Name']")).sendKeys("Salesforce Automation by Manoj");
 		//Click save and verify Work Type Group Name 
 		driver.findElement(By.xpath("//button[@name='SaveEdit']")).click();
+		Thread.sleep(1000);
 		if(driver.findElement(By.xpath("//div[@data-aura-class='forceToastMessage']")).isDisplayed()) {
 			System.out.println(driver.findElement(By.xpath("(//a[@class='forceActionLink']/div)[2]")).getText());
 			System.out.println("Work Type Group created Successfully");
