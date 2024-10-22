@@ -32,7 +32,7 @@ public class s6_17_Create_Opportunity_without_mandatory_field {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.findElement(By.id("username")).sendKeys("gokul.sekar@testleaf.com");
-		driver.findElement(By.id("password")).sendKeys("Leaf$321");
+		driver.findElement(By.id("password")).sendKeys("Leaf$123");
 		driver.findElement(By.id("Login")).click();
 		
 		//Click on toggle menu button from the left corner
