@@ -41,7 +41,7 @@ public class S6_5_Create_Work_Type_Group {
 		driver.findElement(By.xpath("//button[text()='View All']")).click();
 		driver.findElement(By.xpath("//div[@type='search']/input")).sendKeys("Work Type Groups");
 		
-		
+		Thread.sleep(1000);
 		driver.executeScript("arguments[0].click()",  driver.findElement(By.xpath("//a[@data-label='Work Type Groups']")));
 		//Click on the Dropdown icon in the Work Type Groups tab 
 		wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("(//a[contains(@title,'Work Type Groups')])[2]/following-sibling::*//a"))));
@@ -60,7 +60,7 @@ public class S6_5_Create_Work_Type_Group {
 			
 		else System.out.println("Work Type Group not created ");
 		//Thread.sleep(2000);
-		//driver.quit();
+		driver.quit();
 	}
 	
 	
