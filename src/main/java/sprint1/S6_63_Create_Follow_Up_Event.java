@@ -16,6 +16,8 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class S6_63_Create_Follow_Up_Event {
@@ -36,6 +38,8 @@ public class S6_63_Create_Follow_Up_Event {
 		driver.get("https://login.salesforce.com/"); 
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		driver.findElement(By.id("username")).sendKeys("gokul.sekar@testleaf.com");
 		driver.findElement(By.id("password")).sendKeys("Leaf@123");
 		driver.findElement(By.id("Login")).click();
@@ -104,6 +108,7 @@ public class S6_63_Create_Follow_Up_Event {
 		
 		// Click Save button Expected result:
 		driver.findElement(By.xpath("//button[@title='Save']")).click();
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//a[@title='Meeting']/div"))));
 		if(driver.findElement(By.xpath("//a[@title='Meeting']/div")).isDisplayed())
 			System.out.println("Follow up event is created sucessfully");
 		else System.out.println("Follow up event is not created");
