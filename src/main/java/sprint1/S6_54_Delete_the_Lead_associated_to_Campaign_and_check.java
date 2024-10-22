@@ -12,6 +12,7 @@ import org.openqa.selenium.Platform;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -21,13 +22,21 @@ public class S6_54_Delete_the_Lead_associated_to_Campaign_and_check {
 	@Test
 	public void deleteLead() throws InterruptedException, IOException {
 		
+		EdgeOptions option = new EdgeOptions();
+		option.addArguments("--disable-notifications");
+		DesiredCapabilities dc = new DesiredCapabilities(option);
+		dc.setBrowserName("MicrosoftEdge");
+		dc.setPlatform(Platform.LINUX);
 		
-		EdgeDriver driver=new EdgeDriver();             
+		//dc.
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://20.40.48.160:4444/wd/hub"), dc);
+		
+		//EdgeDriver driver=new EdgeDriver();             
 		driver.get("https://login.salesforce.com/"); 
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.findElement(By.id("username")).sendKeys("gokul.sekar@testleaf.com");
-		driver.findElement(By.id("password")).sendKeys("Leaf$321");
+		driver.findElement(By.id("password")).sendKeys("Leaf$123");
 		driver.findElement(By.id("Login")).click();
 		
 		//Click on toggle menu button from the left corner

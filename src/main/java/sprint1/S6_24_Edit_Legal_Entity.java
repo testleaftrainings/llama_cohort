@@ -25,15 +25,15 @@ public class S6_24_Edit_Legal_Entity {
 	@Test
 	public void editlegalEntity() throws InterruptedException, IOException {
 		
-//		DesiredCapabilities dc = new DesiredCapabilities();
-//		dc.setBrowserName("MicrosoftEdge");
-//		dc.setPlatform(Platform.LINUX);
-//		
-//		//dc.
-//		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://20.40.48.160:4444/wd/hub"), dc);
-//		
+		DesiredCapabilities dc = new DesiredCapabilities();
+		dc.setBrowserName("MicrosoftEdge");
+		dc.setPlatform(Platform.LINUX);
 		
-		EdgeDriver driver=new EdgeDriver();             
+		//dc.
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://20.40.48.160:4444/wd/hub"), dc);
+		
+//		
+		//EdgeDriver driver=new EdgeDriver();             
 		driver.get("https://login.salesforce.com/"); 
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
