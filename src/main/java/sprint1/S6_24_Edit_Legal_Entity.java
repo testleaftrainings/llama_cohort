@@ -38,7 +38,7 @@ public class S6_24_Edit_Legal_Entity {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.findElement(By.id("username")).sendKeys("gokul.sekar@testleaf.com");
-		driver.findElement(By.id("password")).sendKeys("Leaf$123");
+		driver.findElement(By.id("password")).sendKeys("Leaf@123");
 		driver.findElement(By.id("Login")).click();
 		File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		

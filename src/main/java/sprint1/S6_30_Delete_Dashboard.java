@@ -34,7 +34,7 @@ public class S6_30_Delete_Dashboard {
 		driver.get("https://login.salesforce.com");
 		//Login to Login | Salesforce 
 		driver.findElement(By.id("username")).sendKeys("gokul.sekar@testleaf.com");
-		driver.findElement(By.id("password")).sendKeys("Leaf$123");
+		driver.findElement(By.id("password")).sendKeys("Leaf@123");
 		driver.findElement(By.id("Login")).click();
 		
 		//Click on the toggle menu button from the left corner
