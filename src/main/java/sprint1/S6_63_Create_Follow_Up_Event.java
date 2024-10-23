@@ -34,12 +34,11 @@ public class S6_63_Create_Follow_Up_Event {
 		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://20.40.48.160:4444/wd/hub"), dc);
 		
 		
-		//EdgeDriver driver=new EdgeDriver(option);             
+		//EdgeDriver driver=new EdgeDriver(option);          
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		driver.get("https://login.salesforce.com/"); 
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		driver.findElement(By.id("username")).sendKeys("gokul.sekar@testleaf.com");
 		driver.findElement(By.id("password")).sendKeys("Leaf@123");
 		driver.findElement(By.id("Login")).click();
@@ -75,6 +74,13 @@ public class S6_63_Create_Follow_Up_Event {
 		
 		Thread.sleep(1000);
 		//Select the Name of the person in Name field
+		try {
+			driver.findElement(By.xpath("(//span[@class='deleteIcon'])[2]")).click();
+		}
+		catch(Exception e)
+		{
+			
+		}
 		element=driver.findElement(By.xpath("(//span[text()='Pick an object']/parent::span[@part='boundary'])[2]"));
 		action.scrollToElement(element);
 		element.click();
@@ -88,6 +94,13 @@ public class S6_63_Create_Follow_Up_Event {
 		//driver.executeScript("window.scrollBy(0, 500)");
 		element= driver.findElement(By.xpath("//textarea"));
 		driver.executeScript("arguments[0].scrollIntoView(true)",element);
+		try {
+			driver.findElement(By.xpath("(//span[@class='deleteIcon'])[3]")).click();
+		}
+		catch(Exception e)
+		{
+			
+		}
 		element= driver.findElement(By.xpath("(//span[text()='Pick an object']/parent::span[@part='boundary'])[3]"));
 		element.click();
 		Thread.sleep(1000);
@@ -96,7 +109,15 @@ public class S6_63_Create_Follow_Up_Event {
 		element.click();
 		Thread.sleep(1000);
 		driver.findElement(By.xpath("//span[text()='Related To']/parent::label/following::input[1]")).click();
-		driver.findElement(By.xpath("//input[@title='Search Products']/parent::div//li[1]")).click();
+		
+		try {
+			driver.findElement(By.xpath("//input[@title='Search Products']/parent::div//li[1]")).click();
+		}
+		catch(Exception e)
+		{
+			driver.findElement(By.xpath("//input[@title='Search Products']/parent::div//li[1]")).click();
+		}
+		
 		
 		//Select due date From today to 14 days
 		LocalDate date= LocalDate.now();
@@ -107,6 +128,7 @@ public class S6_63_Create_Follow_Up_Event {
 		driver.findElement(By.xpath("//tbody/tr/td[@data-value='"+dateAfterAddtion+"']")).click();
 		
 		// Click Save button Expected result:
+		driver.findElement(By.xpath("//button[@title='Save']")).click();
 		driver.findElement(By.xpath("//button[@title='Save']")).click();
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//a[@title='Meeting']/div"))));
 		if(driver.findElement(By.xpath("//a[@title='Meeting']/div")).isDisplayed())
