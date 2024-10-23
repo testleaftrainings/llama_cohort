@@ -59,6 +59,16 @@ public class S6_30_Delete_Dashboard {
 		String[] split = before.split(" ");
 
 		//Click on the Dropdown icon and Select Delete
+		try
+		{
+			wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//tbody/tr/td[6]//button"))));
+			
+		}
+		catch(Exception e)
+		{
+			wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//tbody/tr/td[6]//button"))));
+			
+		}
 		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//tbody/tr/td[6]//button"))));
 		driver.findElement(By.xpath("//tbody/tr/td[6]//button")).click();
 		driver.findElement(By.xpath("//span[text()='Delete']")).click();
