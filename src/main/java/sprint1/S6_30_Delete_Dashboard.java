@@ -11,6 +11,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class S6_30_Delete_Dashboard {
@@ -24,8 +26,8 @@ public class S6_30_Delete_Dashboard {
 		dc.setBrowserName("MicrosoftEdge");
 		dc.setPlatform(Platform.LINUX);
 		
-		//dc.
 		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://20.40.48.160:4444/wd/hub"), dc);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		
 		//EdgeDriver driver = new EdgeDriver(option);
 		driver.manage().window().maximize();
@@ -51,13 +53,13 @@ public class S6_30_Delete_Dashboard {
 
 		//Search the Dashboard 'Salesforce Automation by *Your Name*'
 		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("Salesforce Automation by");
-		Thread.sleep(2000);
 		String before=driver.findElement(By.xpath("//div[@class='test-listViewStatusInfo']")).getText();
 		if(before.length()==0)
 			before=driver.findElement(By.xpath("//div[@class='test-listViewStatusInfo']/span")).getAttribute("innerHTML");
 		String[] split = before.split(" ");
 
 		//Click on the Dropdown icon and Select Delete
+		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//tbody/tr/td[6]//button"))));
 		driver.findElement(By.xpath("//tbody/tr/td[6]//button")).click();
 		driver.findElement(By.xpath("//span[text()='Delete']")).click();
 
