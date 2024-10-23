@@ -58,10 +58,15 @@ public class S6_24_Edit_Legal_Entity {
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//table//tr/td[5]")).click();
 		
-
+		try
+		{
         
 		driver.findElement(By.xpath("//ul[@class='scrollable']/li[1]")).click();
-		
+		}
+		catch(Exception e)
+		{
+			driver.findElement(By.xpath("//ul[@class='scrollable']/li[1]")).click();
+		}
 
 		//Enter the Company name as 'Tetsleaf'.
 		driver.findElement(By.xpath("//input[@name='CompanyName']")).clear();
