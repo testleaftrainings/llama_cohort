@@ -25,20 +25,20 @@ public class S6_24_Edit_Legal_Entity {
 	@Test
 	public void editlegalEntity() throws InterruptedException, IOException {
 		
-//		DesiredCapabilities dc = new DesiredCapabilities();
-//		dc.setBrowserName("MicrosoftEdge");
-//		dc.setPlatform(Platform.LINUX);
-//		
-//		//dc.
-//		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://20.40.48.160:4444/wd/hub"), dc);
-//		
+		DesiredCapabilities dc = new DesiredCapabilities();
+		dc.setBrowserName("MicrosoftEdge");
+		dc.setPlatform(Platform.LINUX);
 		
-		EdgeDriver driver=new EdgeDriver();             
+		//dc.
+		RemoteWebDriver driver = new RemoteWebDriver(new URL("http://20.40.48.160:4444/wd/hub"), dc);
+		
+//		
+		//EdgeDriver driver=new EdgeDriver();             
 		driver.get("https://login.salesforce.com/"); 
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		driver.findElement(By.id("username")).sendKeys("gokul.sekar@testleaf.com");
-		driver.findElement(By.id("password")).sendKeys("Leaf$321");
+		driver.findElement(By.id("password")).sendKeys("Leaf@123");
 		driver.findElement(By.id("Login")).click();
 		File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		
@@ -58,10 +58,15 @@ public class S6_24_Edit_Legal_Entity {
 		Thread.sleep(5000);
 		driver.findElement(By.xpath("//table//tr/td[5]")).click();
 		
-
+		try
+		{
         
 		driver.findElement(By.xpath("//ul[@class='scrollable']/li[1]")).click();
-		
+		}
+		catch(Exception e)
+		{
+			driver.findElement(By.xpath("//ul[@class='scrollable']/li[1]")).click();
+		}
 
 		//Enter the Company name as 'Tetsleaf'.
 		driver.findElement(By.xpath("//input[@name='CompanyName']")).clear();

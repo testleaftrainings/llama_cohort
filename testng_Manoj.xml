@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="sprint1.S6_30_Delete_Dashboard"/>
+      <class name="sprint1.S644CreateNewChart"/>
+      <class name="sprint1.S6_24_Edit_Legal_Entity"/>
+      <class name="sprint1.S6_5_Create_Work_Type_Group"/>
+      <class name="sprint1.S6_11_Edit_Case"/>
+      <class name="sprint1.S6_54_Delete_the_Lead_associated_to_Campaign_and_check"/>
+      <class name="sprint1.S6_63_Create_Follow_Up_Event"/>
+      <class name="sprint1.S643CreateNewRefund"/>
+      <class name="sprint1.s6_17_Create_Opportunity_without_mandatory_field"/>
+      <class name="sprint1.S6_42_Services_Sort_order"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
