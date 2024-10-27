@@ -16,7 +16,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 @Test
-public class nba {
+public class nba_praveena {
 	public  void main(String[] args) throws InterruptedException {
 		ChromeOptions options=new ChromeOptions();
 		options.addArguments("--disable-notifications");
